@@ -85,4 +85,13 @@ for region in regions:
     for volume in response["Volumes"]:
         print ("About to delete %s | in %s" % (volume['VolumeId'], region['RegionName']))
         response = client.delete_volume(VolumeId=volume['VolumeId'])
+        
+################################ S3 Buckets ####################################
+print ("+++++++++++++ Starting S3 now -----------------") 
+client = boto3.client('s3')
+response = client.list_buckets()
+for bucket in response["Buckets"]:
+    print("About to delete %s" % (bucket['Name']))
+    response =  client.delete_bucket(Bucket=bucket['Name'])
+
     
