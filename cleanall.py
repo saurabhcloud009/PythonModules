@@ -86,6 +86,9 @@ for region in regions:
         print ("About to delete %s | in %s" % (volume['VolumeId'], region['RegionName']))
         response = client.delete_volume(VolumeId=volume['VolumeId'])
         
+################################Global Services#################################
+
+
 ################################ S3 Buckets ####################################
 print ("+++++++++++++ Starting S3 now -----------------") 
 client = boto3.client('s3')
